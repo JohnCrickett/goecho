@@ -48,14 +48,12 @@ func UdpEchoServer() {
 }
 
 func udpReply(conn net.PacketConn, addr net.Addr, buf []byte) {
-
 	conn.WriteTo(buf, addr)
 }
 
 func TcpEchoServer() {
 	// Go provides a high level abstraction instead of the Berkley Sockets API
 	listener, err := net.Listen("tcp", address)
-	defer listener.Close()
 
 	if err != nil {
 		fmt.Println(err)
